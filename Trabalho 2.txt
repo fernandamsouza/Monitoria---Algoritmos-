@@ -1,0 +1,267 @@
+3- Leia uma matriz quadrada qualquer e crie um programa para calcular a média aritmética dos elementos hachurados da figura 1, letra a.
+
+ 
+
+#include stdlib.h
+
+#include stdio.h
+
+ 
+
+int main () {
+
+          int M[12][12],i,j,soma,cont,media;
+
+          FILE cd = fopen (cd.txt, r);
+
+                     if (cd==NULL){
+
+     printf(nNao deu certo);
+
+     return -1;
+
+          }
+
+ 
+
+     while ( !feof(cd)){
+
+          for (i=0;i12;i++) {
+
+                     for (j=0;j12;j++) {
+
+                               fscanf (cd, %d, &M[i][j]);
+
+                     }
+
+          }
+
+          }
+
+          soma = 0;
+
+          cont = 0;
+
+          for (i=2;i=6;i++) {
+
+                     for (j=i+1;j12-i;j++) {
+
+                               soma += M[i][j];
+
+                               soma += M[13-i][j];
+
+                               cont++;
+
+                     }
+
+          }
+
+          media = somacont;
+
+          printf (A media e %d, media);
+
+}
+
+
+
+4.1- Com a mesma matriz que você leu no item 3, crie um programa para achar o maior elemento da linha onde se encontra o menor elemento da área hachurada na letra b da Figura 1.
+
+ 
+
+#include stdlib.h
+
+#include stdio.h
+
+ 
+
+int main () {
+
+          int M[12][12],i,j,menor,maior,auxi,auxj;
+
+          FILE cd = fopen (cd.txt, r);
+
+                     if (cd==NULL){
+
+     printf(nO arquivo nao foi lido.);
+
+     return -1;
+
+          }
+
+     while ( !feof(cd)){
+
+          for (i=0;i12;i++) {
+
+                     for (j=0;j12;j++) {
+
+                               fscanf (cd, %d, &M[i][j]);
+
+                     }
+
+          }
+
+          }
+
+          menor = 0;
+
+                     for (i=0;i11;i++) {
+
+                     for (j=0;j12-i;j++) {
+
+                               if (M[i][j]menor) {
+
+                                          menor = M[j][i];
+
+                                          auxi = i;
+
+                     }
+
+          }
+
+}
+
+maior = 0;
+
+                     for (i=0;i11;i++) {
+
+                     for (j=0;j12-i;j++) {
+
+                               if (M[auxi][j]maior) {
+
+                                          maior = M[i][j];
+
+                                          auxj = j;
+
+                               }
+
+                     }
+
+          }
+
+          printf (O maior elemento da linha onde se encontra o menor elemento da area hachurada e %d, maior);
+
+          return 0;
+
+}
+
+4.2- Faça um programa que leia uma matriz 12x12. Calcule a soma da área hachurada na letra a da figura 2.
+
+
+#include stdlib.h
+
+#include stdio.h
+
+ 
+
+int main () {
+
+          int M[12][12], i, j, soma;
+
+          FILE cd = fopen (cd.txt, r);
+
+                     if (cd==NULL){
+
+     printf(nO arquivo nao foi lido.);
+
+     return -1;
+
+          }
+
+     while ( !feof(cd)){
+
+          for (i=0;i12;i++) {
+
+                     for (j=0;j12;j++) {
+
+                               fscanf (cd, %d, &M[i][j]);
+
+                     }
+
+          }
+
+          }
+
+                     for (i=0;i11;i++) {
+
+                     for (j=0;j12-i;j++) {
+
+                               soma += M[i][j];
+
+                     }
+
+          }
+
+          printf (A soma da area hachurada e %d, soma);
+
+          return 0;
+
+}
+
+ 
+
+5- Com a mesma matriz que você leu no item 4, faça um programa que escreva o maior elemento da área hachurada na letra b. Use leitura da matriz 12x12 através de arquivo.
+
+ 
+
+#include stdlib.h
+
+#include stdio.h
+
+ 
+
+int main () {
+
+          int M[12][12],i,j,maior;
+
+          FILE cd = fopen (cd.txt, r);
+
+                     if (cd==NULL){
+
+     printf(nO arquivo nao foi lido.);
+
+     return -1;
+
+          }
+
+     while ( !feof(cd)){
+
+          for (i=0;i12;i++) {
+
+                     for (j=0;j12;j++) {
+
+                               fscanf (cd, %d, &M[i][j]);
+
+                     }
+
+          }
+
+          }
+
+          maior = 0;
+
+          for (i=0;i6;i++) {
+
+                     for (j=i;j13-i;j++) {
+
+                               if (M[i][j]maior) {
+
+                                          maior = M[j][i];
+
+                               }
+
+                               if (M[j][13-i]maior) {
+
+                                          maior = M[j][13-i];
+
+                               }
+
+                     }
+
+          }
+
+          printf (O maior elemento da area hachurada e %d, maior);
+
+          return 0;
+
+
+}

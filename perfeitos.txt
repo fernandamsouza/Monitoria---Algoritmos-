@@ -1,0 +1,39 @@
+// QUAIS OS CINCO PRIMEIROS NÚMEROS PERFEITOS.
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+// AQUI PARA DEFINIÇÃO, SIM É IGUAL A 1 E NAO IGUAL A 0.
+#define SIM 1
+#define NAO 0
+
+// FUNÇÃO QUE RETORNA SE O NÚMERO É PRIMO OU NÃO, COMO JÁ FIZEMOS NA MONITORIA.
+int numeroPrimo(int x){
+int i;
+  for (i=2;i<x-1;i++){
+    if(x%i == 0){
+      return NAO;
+    }
+  }
+  return SIM;
+}
+
+// FUNÇÃO VOID QUE NÃO RETORNA NADA, É COMO SE FOSSE A "NOVA MAIN", ELA PRINTA DIRETO QUAIS SÃO OS NÚMEROS PERFEITOS.
+void numerosPerfeitos(int limite){
+int i;
+  int cont = 0; // Define o contador como 0. 
+    for (i=2;i<1000;i++){ // Aqui estava o problema que não conseguimos resolver na monitoria, estava em um detalhe mesmo. O for deve analisar e testar os números primos, e não o número de perfeitos que o problema pede(5 no caso).
+// Portanto, o for aqui começa no 2, que é um número primo, e analisa até o número 1000, um número qualquer apenas para gerar 1000 números para testar se eles são primos ou não.
+      if(cont==limite){ // Se o contador chegar no 5, para o código. Até o 5 pois o problema pede apenas os cinco primeiros.
+        break; 
+      }else{
+        if(numeroPrimo(i)==SIM && i!=11) { // Se for um número primo, entra na condição para aplicar a fórmula, e também o número primo 11 quando colocado na fórmula não gera um número perfeito, portanto ele é retirado da condição e o laço continua normalmente, agora passando para o próximo número primo, o 13.
+          printf("%.0lf \n",pow(2,i-1)*(pow(2,i) - 1)); // fórmula aplicada direta para saber os respectivos números perfeitos.
+          cont++; // contador para chegar até o 5. 
+        }
+      }
+    }
+}
+
+int main(){
+  numerosPerfeitos(5); // passando para a função o número de perfeitos que o problema pede, ou seja, 5.
+}

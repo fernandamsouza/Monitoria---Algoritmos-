@@ -1,0 +1,5 @@
+- CASAS DECIMAIS -
+
+cout.setf (ios_base::fixed);
+cout.precision ();
+
